@@ -21,10 +21,10 @@ from vit_jax.configs import models
 def get_config():
   """Returns config for training Mixer-B/16 on cifar10."""
   config = common.get_config()
-  config.model_type = 'Mixer'
+  # config.model_type = 'Vit'
   config.model = models.get_mixer_b16_config()
-  config.dataset = 'cifar10'
+  config.dataset = '/root/autodl-tmp/cifar-100'
   config.total_steps = 10_000
   config.pp = ml_collections.ConfigDict(
-      {'train': 'train[:98%]', 'test': 'test', 'crop': 224})
+      {'train': 'train[:95%]', 'test': 'test', 'crop': 224})
   return config
